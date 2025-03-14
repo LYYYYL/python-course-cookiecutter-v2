@@ -6,7 +6,7 @@ from copy import deepcopy
 from pathlib import Path
 from typing import Dict
 
-PROJECT_DIR = Path(__file__).resolve().parent.parent.parent
+from tests_cookiecutter.constants import PROJECT_DIR
 
 
 def initialize_git_repo(repo_dir: Path):

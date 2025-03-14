@@ -1,8 +1,4 @@
-"""
-Stores constants used in the tests.
-
-Defines PROJECT_DIR to be used in the tests.
-"""
+"""constants for tests."""
 
 from pathlib import Path
 
