@@ -76,23 +76,6 @@ function try-load-dotenv {
     done < <(grep -v '^#' "$THIS_DIR/.env" | grep -v '^$')
 }
 
-# args:
-#    REPO_NAME - name of the repository
-#    GITHUB_USERNAME - name of my github user, e.g. phitoduck
-function create-repo-if-not-exists {
-    # check to see if the repository exists; if it does, return
-    gh repo view "GITHUB_USERNAME/REPO_NAME" >/dev/null && return 0
-    # otherwise we'll create the repository
-}
-
-function configure-repo {
-
-}
-
-function open-pr-with-generated-project {
-
-}
-
 # print all functions in this file
 function help {
     echo "$0 <task> <args>"
