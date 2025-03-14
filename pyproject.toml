@@ -32,7 +32,7 @@ disable = [
 ]
 
 [tool.mypy]
-exclude = "{{cookiecutter.repo_name}}"
+explicit_package_bases = true
 
 [tool.ruff]
 exclude = ["venv", "[{][{]cookiecutter.repo_name[}][}]"]
