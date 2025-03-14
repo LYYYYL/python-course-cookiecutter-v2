@@ -41,7 +41,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.12
-      - name: Lint, Format, and other static code quality checks
+      - name: Configure git CLI
+        run: |
+          git config --global user.email "LYY-bot-user@gmail.com"
+          git config --global user.name "Leow Yuan Yeow"
+      - name: Run tests
         run: |
           make install
           make test
