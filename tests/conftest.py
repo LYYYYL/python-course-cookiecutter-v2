@@ -1,3 +1,5 @@
+"""pytest configuration file."""
+
 import sys
 from pathlib import Path
 
