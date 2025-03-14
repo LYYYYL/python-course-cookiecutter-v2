@@ -24,12 +24,12 @@ function lint:ci {
 
 # execute tests that are not marked as `slow`
 function test:quick {
-    run-tests -m "not slow" ${@:-"$THIS_DIR/tests/"}
+    run-tests -m "not slow" ${@:-"$THIS_DIR/tests_cookiecutter/"}
 }
 
 # (example) ./run.sh test tests/test_states_info.py::test__slow_add
 function run-tests {
-    python -m pytest ${@:-"$THIS_DIR/tests/"}
+    python -m pytest ${@:-"$THIS_DIR/tests_cookiecutter/"}
 }
 
 function generate-project {
