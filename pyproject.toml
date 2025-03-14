@@ -31,6 +31,9 @@ disable = [
     "redefined-outer-name",
 ]
 
+[tool.mypy]
+exclude = "{{cookiecutter.repo_name}}"
+
 [tool.ruff]
 exclude = ["venv", "[{][{]cookiecutter.repo_name[}][}]"]
 line-length = 119
