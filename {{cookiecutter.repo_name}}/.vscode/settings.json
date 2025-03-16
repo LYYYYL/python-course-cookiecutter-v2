@@ -41,4 +41,7 @@
             "color": "lightgreen"
         }
     ],
+    "files.exclude": {
+        "**/.git": false
+    }
 }
