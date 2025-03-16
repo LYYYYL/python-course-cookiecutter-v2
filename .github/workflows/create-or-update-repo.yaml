@@ -18,7 +18,7 @@ on:
         type: string
 
 env:
-  GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN}}
+  GH_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN}}
 
 jobs:
   create-repo-if-not-exists:
@@ -27,12 +27,16 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Configure git user
+        run: |
+          git config --global user.email "yuanyeow.github@gmail.com"
+          git config --global user.name "Leow Yuan Yeow"
       - env:
           GITHUB_USERNAME: ${{ github.actor }}
           REPO_NAME: ${{ github.event.inputs.repo_name }}
           IS_PUBLIC_REPO: ${{ github.event.inputs.is_public_repo }}
         run: |
-          bash run.sh create-repo-if-not-exists
+          bash -x run.sh create-repo-if-not-exists
 
   configure-repo:
     needs: [create-repo-if-not-exists]
@@ -41,8 +45,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Configure git user
+        run: |
+          git config --global user.email "yuanyeow.github@gmail.com"
+          git config --global user.name "Leow Yuan Yeow"
       - run: |
-          bash run.sh configure-repo
+          bash -x run.sh configure-repo
         env:
           TEST_PYPI_TOKEN: ${{ secrets.TEST_PYPI_TOKEN }}
           PROD_PYPI_TOKEN: ${{ secrets.PROD_PYPI_TOKEN }}
@@ -56,8 +64,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Configure git user
+        run: |
+            git config --global user.email "yuanyeow.github@gmail.com"
+            git config --global user.name "Leow Yuan Yeow"
       - run: |
-          bash run.sh open-pr-with-generated-project
+          bash -x run.sh open-pr-with-generated-project
         env:
           GITHUB_USERNAME: ${{ github.actor }}
+          PACKAGE_IMPORT_NAME: ${{ github.event.inputs.package_import_name }}
           REPO_NAME: ${{ github.event.inputs.repo_name }}
