@@ -63,6 +63,7 @@ jobs:
           fetch-depth: 0
       - name: Push tags
         run: |
+          git tag $(cat version.txt)
           git push origin --tags
 
   # https://docs.github.com/en/actions/learn-github-actions/contexts#example-printing-context-information-to-the-log
