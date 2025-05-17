@@ -8,19 +8,18 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "{{cookiecutter.package_import_name}}"
-authors = [{ name = "Eric Riddoch", email = "some-email@gmail.com" }]
+authors = [{ name = "Leow Yuan Yeow", email = "yuanyeow.github@gmail.com" }]
 description = "My package description"
 readme = "README.md"
-requires-python = ">=3.7"
-keywords = ["one", "two"]
+requires-python = ">=3.10"
 license = { text = "MIT" }
 classifiers = ["Programming Language :: Python :: 3"]
-dependencies = ["numpy", 'importlib-metadata; python_version<"3.8"']
+dependencies = ["numpy"]
 dynamic = ["version"]
 
 [project.optional-dependencies]
 test = ["pytest", "pytest-cov"]
-release = ["build", "twine"]
+release = ["build"]
 static-code-qa = ["pre-commit"]
 dev = ["{{cookiecutter.package_import_name}}[test,release,static-code-qa]"]
 
@@ -37,7 +36,7 @@ exclude = "venv"
 
 [tool.flake8]
 docstring-convention = "all"
-ignore = ["D107", "D212", "E501", "W503", "W605", "D203", "D100"]
+ignore = ["D107", "D212", "E501", "W503", "W605", "D203", "D100", "D417"]
 exclude = ["venv"]
 max-line-length = 119
 
@@ -59,6 +58,9 @@ disable = [
     "import-error",
     "too-few-public-methods",
     "redefined-outer-name",
+    "R0913",                        # Too many arguments
+    "R0917",                        # Too many positional argument
+    "too-many-instance-attributes",
 ]
 
 [tool.ruff]
