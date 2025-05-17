@@ -49,7 +49,7 @@ repos:
       - id: detect-private-key
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: "v0.9.10"
+    rev: "v0.11.10"
     hooks:
       - id: ruff
         args: [--exit-non-zero-on-fix, --config=./pyproject.toml]
@@ -75,14 +75,14 @@ repos:
           - --config=./pyproject.toml
 
   - repo: https://github.com/PyCQA/pylint
-    rev: v3.3.5
+    rev: v3.3.7
     hooks:
       - id: pylint
         args:
           - --rcfile=./pyproject.toml
 
   - repo: https://github.com/PyCQA/flake8
-    rev: 7.1.2
+    rev: 7.2.0
     hooks:
       - id: flake8
         args:
